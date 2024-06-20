@@ -1,0 +1,58 @@
+1. https://www.codewars.com/kata/5a005f4fba2a14897f000086/train/python
+
+def sum_it_up(numbers):
+    total_sum = 0
+    for num, base in numbers:
+        total_sum += int(num, base)
+    return total_sum
+
+2. https://www.codewars.com/kata/5cc80fbe701f0d001136e5eb/train/python
+
+def stem_and_leaf(data):
+    plot = {}
+    for number in data:
+        stem = number // 10 
+        leaf = number % 10
+        if stem not in plot:
+            plot[stem] = []
+        plot[stem].append(leaf)
+ 
+    for stem in plot:
+        plot[stem].sort()
+    
+    return plot
+
+3.https://www.codewars.com/kata/57ae18c6e298a7a6d5000c7a/train/python
+
+def replace_all(obj, find, replace):
+    if isinstance(obj, list):
+        return [replace if item == find else item for item in obj]
+    elif isinstance(obj, str):
+        return obj.replace(find, replace)
+    else:
+        raise TypeError("Input must be a list or a string")
+
+4.https://www.codewars.com/kata/5899e054aa1498da6b0000cc/train/python
+
+def reverse_invert(lst):
+    def reverse_number(n):
+       
+        reversed_num = int(str(abs(n))[::-1])
+        return -reversed_num if n > 0 else reversed_num
+    
+    int_list = [item for item in lst if isinstance(item, int)]
+    result = [reverse_number(n) for n in int_list]
+    
+    return result
+
+5.https://www.codewars.com/kata/55466644b5d240d1d70000ba/train/python
+
+def candies(lst):
+
+    if len(lst) <= 1:
+        return -1
+    
+    max_lst = max(lst)
+    total_extra_lst = sum(max_lst - candy for candy in lst)
+    
+    return total_extra_lst
